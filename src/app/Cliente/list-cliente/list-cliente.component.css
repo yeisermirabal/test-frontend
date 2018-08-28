@@ -1,0 +1,11 @@
+.main_container{
+  max-width: 100%;
+  margin: 20px;
+}
+table {
+    width: 80%;
+  }
+  .button-row button {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}

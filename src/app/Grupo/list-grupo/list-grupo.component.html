@@ -1,0 +1,21 @@
+<div  class="main_container">
+        <div class="button-row">
+            <button mat-stroked-button color="primary" routerLink="/addgrupo">Adicionar</button>
+            <button mat-stroked-button routerLink="/editgrupo">Editar</button>
+            <button mat-stroked-button color="warn">Remover</button>
+        </div>
+        <router-outlet  style="margin-top: 80px;"></router-outlet>
+        
+        <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="nome">
+                <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+                <mat-cell *matCellDef="let grupo"> {{grupo.nome}} </mat-cell>
+            </ng-container>     
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          
+        </mat-table>
+        </div>

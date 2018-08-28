@@ -1,0 +1,39 @@
+<div  class="main_container">
+<div class="button-row">
+    <button mat-stroked-button color="primary" routerLink="/addcliente">Adicionar</button>
+    <button mat-stroked-button routerLink="/editcliente">Editar</button>
+    <button mat-stroked-button color="warn">Remover</button>
+</div>
+<router-outlet  style="margin-top: 80px;"></router-outlet>
+
+<mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nome">
+        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.nome}} </mat-cell>
+    </ng-container>
+
+    <!-- CEP Column -->
+    <ng-container matColumnDef="cep">
+        <mat-header-cell *matHeaderCellDef> CEP </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.cep}} </mat-cell>
+    </ng-container>
+
+    <!-- Cidade Column -->
+    <ng-container matColumnDef="cidade">
+        <mat-header-cell *matHeaderCellDef> Cidade </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.cidade}} </mat-cell>
+    </ng-container>
+
+    <!-- Grupo Column -->
+    <ng-container matColumnDef="grupo">
+        <mat-header-cell *matHeaderCellDef> Grupo </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.grupo.nome}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+</mat-table>
+</div>
