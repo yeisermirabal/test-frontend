@@ -11,7 +11,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-stroked-button (click)="criarGrupo(inputNome)" color="primary">Aceitar</button>
+      <button mat-stroked-button (click)="criarGrupo(inputNome.value);inputNome.value=''" color="primary">Aceitar</button>
       <button mat-stroked-button routerLink="/grupos">Cancelar</button>
     </mat-card-actions>
   </mat-card>

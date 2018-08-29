@@ -3,6 +3,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import{Cliente} from '../Interface/cliente';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+import{Grupo} from '../Interface/grupo';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,7 +18,10 @@ const httpOptions = {
 })
 
 export class ClienteService {
-  private serviceUrl: string = "http://10.0.0.10:8081/grupos/1/clientes";
+  private grupo: Grupo;
+  private baseUrl = environment.baseUrl;
+
+  private serviceUrl: string = this.baseUrl+"/clientes";
 
 
   constructor(private http: HttpClient) {   }
@@ -26,6 +32,6 @@ export class ClienteService {
   }
   /*Send data to the server*/
   addCliente(cliente: Cliente){
-    return this.http.post<Cliente>(this.serviceUrl, cliente, httpOptions)
+    return this.http.post<Cliente>(this.serviceUrl, cliente, httpOptions);
   }
 }

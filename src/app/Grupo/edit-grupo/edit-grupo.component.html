@@ -1,3 +1,17 @@
-<p>
-  edit-group works!
-</p>
+<mat-card class="card_container">
+    <mat-card-header>
+      <mat-card-title>Editar um grupo</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field>
+            <input matInput hidden #inputId [(ngModel)] = "id" [value]="id" >
+          <input matInput #inputNome placeholder="Nome" [(ngModel)] = "nome" [value]="nome" >
+        </mat-form-field>        
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-stroked-button (click)="editGrupo();inputNome.value=''" color="primary">Aceitar</button>
+      <button mat-stroked-button routerLink="/grupos">Cancelar</button>
+    </mat-card-actions>
+  </mat-card>
