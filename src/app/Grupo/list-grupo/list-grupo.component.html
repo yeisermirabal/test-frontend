@@ -27,10 +27,8 @@
                 <button mat-icon-button (click)="deleteGrupo(grupo)" color="warn">
                         <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
                 </button>
-               
             </mat-cell>
         </ng-container>
-
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 

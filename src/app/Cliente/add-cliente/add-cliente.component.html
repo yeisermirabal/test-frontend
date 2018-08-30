@@ -9,21 +9,21 @@
         <input matInput #inputNome placeholder="Nome" [(ngModel)] = "nome">
       </mat-form-field>
       <mat-form-field>
-        <mat-select placeholder="Grupo" [(ngModel)] = "grupo">
+        <mat-select #selectGrupo placeholder="Grupo" [(ngModel)] = "grupo">
           <mat-option *ngFor="let grupo of grupos" value="{{grupo.id}}">{{grupo.nome}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <input matInput #input placeholder="CEP"  [(ngModel)] = "cep">
+        <input matInput #inputCEP placeholder="CEP"  [(ngModel)] = "cep">
       </mat-form-field>
       <mat-form-field hintLabel="Min 3 - Max 80">
-        <input matInput #input maxlength="80" minlength="3" placeholder="Cidade"  [(ngModel)] = "cidade">
-        <mat-hint align="end">{{input.value?.length || 3}}/80</mat-hint>
+        <input matInput #inputCidade maxlength="80" minlength="3" placeholder="Cidade"  [(ngModel)] = "cidade">
+        <mat-hint align="end">{{inputCidade.value?.length || 3}}/80</mat-hint>
       </mat-form-field>
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button (click)="criarCliente()" color="primary">Aceitar</button>
+    <button mat-stroked-button (click)="criarCliente(selectGrupo.value)" color="primary">Aceitar</button>
     <button mat-stroked-button routerLink="/clientes">Cancelar</button>
   </mat-card-actions>
 </mat-card>

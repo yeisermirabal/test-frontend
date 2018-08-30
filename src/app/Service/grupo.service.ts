@@ -6,23 +6,23 @@ import { catchError, tap } from 'rxjs/operators';
 
 
 import { environment } from '../../environments/environment';
-import{Grupo} from '../Interface/grupo';
+import {Grupo} from '../Interface/grupo';
 
-//Header for json
+// Header for json
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
 
 @Injectable({
   providedIn: 'root'
 })
 export class GrupoService {
-//Take the url from the api and save it in a constant
+// Take the url from the api and save it in a constant
   private baseUrl = environment.baseUrl;
   private serviceUrl: string = this.baseUrl+"/grupos";
 
   constructor(private http: HttpClient) {   }
-  
-/*Get data from the api*/
-  getData(): Observable<Grupo[]>{
+
+/* Get data from the api */
+  getData(): Observable<Grupo[]> {
     return this.http.get<Grupo[]>(this.serviceUrl);
   }
 
@@ -38,7 +38,7 @@ export class GrupoService {
 }
 
 deleteGrupoService (id: number): Observable<Grupo> {
-  const url = `${this.serviceUrl}/${id}`; 
+  const url = `${this.serviceUrl}/${id}`;
   return this.http.delete<Grupo>(url, httpOptions).pipe(
     tap(_ => this.log(`deleted grupo id=${id}`)),
     catchError(this.handleError<Grupo>('deleteGrupoService'))
