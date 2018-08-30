@@ -3,7 +3,7 @@ import { GrupoService } from '../../Service/grupo.service';
 import { Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/collections';
 import { Grupo } from '../../Interface/grupo';
-import {Router,NavigationExtras} from "@angular/router";
+import {Router, NavigationExtras} from '@angular/router';
 
 @Component({
   selector: 'list-grupo',
@@ -13,22 +13,23 @@ import {Router,NavigationExtras} from "@angular/router";
 export class ListGrupoComponent implements OnInit {
 
   dataSource: GrupoDataSource;
-  displayedColumns = ['id','nome', 'actions'];
+  displayedColumns = ['id', 'nome', 'actions'];
 
   constructor(private router: Router, private grupoService: GrupoService) {
   }
 
   ngOnInit() {
-    this.dataSource = new GrupoDataSource(this.grupoService);
+    // this.dataSource = new GrupoDataSource(this.grupoService);
   }
 
-  showEditGrupo(grupo){      
-    let grupoParams: NavigationExtras = {
+  showEditGrupo(grupo) {
+    const grupoParams: NavigationExtras = {
       queryParams: {
         id: grupo.id,
         nome: grupo.nome
       }
-  }
+  };
+
   this.router.navigate(['editgrupo'], grupoParams);
   }
 
@@ -43,12 +44,8 @@ export class ListGrupoComponent implements OnInit {
       console.log(data);
    //   this.dataSource.connect().splice(grupo.id);
     });
-    
-   } 
-  
 
-  
-
+   }
 
 }
 
@@ -57,11 +54,11 @@ export class GrupoDataSource extends DataSource<any> {
 
   constructor(private grupoService: GrupoService) {
     super();
-  };
+  }
 
   connect(): Observable<Grupo[]> {
     return this.grupoService.getData();
   }
   disconnect() { }
-  
+
 }
