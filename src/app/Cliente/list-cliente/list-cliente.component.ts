@@ -40,9 +40,8 @@ export class ListClienteComponent implements OnInit {
     this.router.navigate(['editcliente'], clienteParams);
   }
 
-  deleteCliente(cliente): void {
-    console.log(cliente);
-    this.clienteService.deleteClienteService(cliente.id).subscribe(data => {
+  deleteCliente(id): void {
+    this.clienteService.deleteClienteService(id).subscribe(data => {
      this.loadData();
     });
   }
