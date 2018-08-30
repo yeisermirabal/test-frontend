@@ -1,13 +1,15 @@
 <div  class="main_container">
 <div class="button-row">
     <button mat-stroked-button color="primary" routerLink="/addcliente">Adicionar</button>
-    <button mat-stroked-button routerLink="/editcliente">Editar</button>
-    <button mat-stroked-button color="warn">Remover</button>
 </div>
 <router-outlet  style="margin-top: 80px;"></router-outlet>
 
 <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
-
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="id" hidden>
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{cliente.id}} </mat-cell>
+  </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="nome">
         <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
@@ -37,7 +39,7 @@
           <button mat-icon-button (click)="showEditCliente(cliente)">
               <mat-icon aria-label="Edit cliente">edit</mat-icon>
           </button>
-          <button mat-icon-button (click)="deleteCliente(cliente)" color="warn">
+          <button mat-icon-button (click)="deleteCliente(cliente.id)" color="warn">
                   <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
           </button>
       </mat-cell>

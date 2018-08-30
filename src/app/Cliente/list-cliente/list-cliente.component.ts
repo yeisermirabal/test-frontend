@@ -11,8 +11,10 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['./list-cliente.component.css']
 })
 export class ListClienteComponent implements OnInit {
+
   dataSource: ClienteDataSource;
-  displayedColumns = ['nome', 'cep', 'cidade', 'grupo', 'actions'];
+  displayedColumns = ['id', 'nome', 'cep', 'cidade', 'grupo', 'actions'];
+  // cliente: Cliente;
 
   constructor(private router: Router, private clienteService: ClienteService) {
   }
@@ -38,6 +40,7 @@ export class ListClienteComponent implements OnInit {
   }
 
   deleteCliente(cliente): void {
+    console.log(cliente);
     this.clienteService.deleteClienteService(cliente.id).subscribe(data => {
      this.loadData();
     });
@@ -48,8 +51,7 @@ export class ListClienteComponent implements OnInit {
 export class ClienteDataSource extends DataSource<any> {
   constructor(private clienteService: ClienteService) {
     super();
-  };
-
+  }
   connect(): Observable<Cliente[]> {
     return this.clienteService.getData();
   }
