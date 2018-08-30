@@ -4,7 +4,7 @@
 </div>
 <router-outlet  style="margin-top: 80px;"></router-outlet>
 
-<mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+<mat-table class="mat-elevation-z8" [dataSource]="dataSourceClientes">
     <!-- Checkbox Column -->
     <ng-container matColumnDef="id" hidden>
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
@@ -37,15 +37,14 @@
       <mat-header-cell *matHeaderCellDef> A&ccedil;&otilde;es </mat-header-cell>
       <mat-cell mat-cell *matCellDef="let grupo">
           <button mat-icon-button (click)="showEditCliente(cliente)">
-              <mat-icon aria-label="Edit cliente">edit</mat-icon>
+              <mat-icon aria-label="">edit</mat-icon>
           </button>
           <button mat-icon-button (click)="deleteCliente(cliente.id)" color="warn">
-                  <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                  <mat-icon aria-label="">delete</mat-icon>
           </button>
       </mat-cell>
   </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-
 </mat-table>
 </div>

@@ -12,9 +12,9 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class ListClienteComponent implements OnInit {
 
-  dataSource: ClienteDataSource;
+  dataSourceClientes: ClienteDataSource;
   displayedColumns = ['id', 'nome', 'cep', 'cidade', 'grupo', 'actions'];
-  // cliente: Cliente;
+  cliente: Cliente;
 
   constructor(private router: Router, private clienteService: ClienteService) {
   }
@@ -24,11 +24,12 @@ export class ListClienteComponent implements OnInit {
   }
 
   public loadData() {
-    this.dataSource = new ClienteDataSource(this.clienteService);
+    this.dataSourceClientes = new ClienteDataSource(this.clienteService);
   }
 
   showEditCliente(cliente: Cliente) {
-    let clienteParams: NavigationExtras = {
+    console.log(cliente.nome);
+    const clienteParams: NavigationExtras = {
       queryParams: {
         id: cliente.id,
         nome: cliente.nome,
