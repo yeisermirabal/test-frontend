@@ -19,13 +19,12 @@ export class AddClienteComponent implements OnInit {
   cidade: string;
 
   constructor(private router: Router, private clienteService: ClienteService, private grupoService: GrupoService) {
-    this.grupoService.getData().subscribe(data => {
-      this.grupos = data;
-    });
-
   }
 
   ngOnInit() {
+    this.grupoService.getData().subscribe(data => {
+      this.grupos = data;
+    });
   }
 
 

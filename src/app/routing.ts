@@ -10,11 +10,11 @@ import { ListGrupoComponent } from './Grupo/list-grupo/list-grupo.component';
 
 const routes: Routes = [
     {path: 'clientes', component: ListClienteComponent},
-    {path: 'editcliente', component: EditClienteComponent},
-    {path: 'addcliente', component: AddClienteComponent},
+    {path: 'clientes/editar', component: EditClienteComponent},
+    {path: 'clientes/adicionar', component: AddClienteComponent},
     {path: 'grupos', component: ListGrupoComponent},
-    {path: 'editgrupo', component: EditGrupoComponent},
-    {path: 'addgrupo', component: AddGrupoComponent}
+    {path: 'grupos/editar', component: EditGrupoComponent},
+    {path: 'grupos/adicionar', component: AddGrupoComponent}
   ];
 
   export const routing = RouterModule.forRoot(routes);

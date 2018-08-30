@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from '../../Service/cliente.service';
-import { Observable } from 'rxjs';
-import { DataSource } from '@angular/cdk/collections';
-import { Cliente } from '../../Interface/cliente';
 import { Router, NavigationExtras } from '@angular/router';
+
+import { ClienteService } from '../../Service/cliente.service';
+import { ClienteDataSource } from '../../cliente-data-source';
+import { Cliente } from '../../Interface/cliente';
 
 @Component({
   selector: 'app-list-cliente',
@@ -14,10 +14,8 @@ export class ListClienteComponent implements OnInit {
 
   dataSourceClientes: ClienteDataSource;
   displayedColumns = ['id', 'nome', 'cep', 'cidade', 'grupo', 'actions'];
-  cliente: Cliente;
 
-  constructor(private router: Router, private clienteService: ClienteService) {
-  }
+  constructor(private router: Router, private clienteService: ClienteService) {  }
 
   ngOnInit() {
     this.loadData();
@@ -27,33 +25,29 @@ export class ListClienteComponent implements OnInit {
     this.dataSourceClientes = new ClienteDataSource(this.clienteService);
   }
 
-  showEditCliente(cliente: Cliente) {
-    console.log(cliente.nome);
+  showAdicionarCliente() {
+    this.router.navigate(['clientes/adicionar']);
+  }
+
+  showEditarCliente(cliente: Cliente) {
     const clienteParams: NavigationExtras = {
       queryParams: {
         id: cliente.id,
         nome: cliente.nome,
         cep: cliente.cep,
-        cidade: cliente.cidade
-      }
+        cidade: cliente.cidade,
+        grupo: cliente.grupo.id
+      },
+      skipLocationChange: true
     };
-    this.router.navigate(['editcliente'], clienteParams);
+    this.router.navigate(['clientes/editar'], clienteParams);
   }
 
-  deleteCliente(id): void {
-    this.clienteService.deleteClienteService(id).subscribe(data => {
+  deletarCliente(id): void {
+    this.clienteService.deletarClienteService(id).subscribe(data => {
      this.loadData();
     });
   }
 
 }
 
-export class ClienteDataSource extends DataSource<any> {
-  constructor(private clienteService: ClienteService) {
-    super();
-  }
-  connect(): Observable<Cliente[]> {
-    return this.clienteService.getData();
-  }
-  disconnect() { }
-}

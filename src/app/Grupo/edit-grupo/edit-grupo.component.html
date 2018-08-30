@@ -7,11 +7,11 @@
         <mat-form-field>
             <input matInput hidden #inputId [(ngModel)] = "id" [value]="id" >
           <input matInput #inputNome placeholder="Nome" [(ngModel)] = "nome" [value]="nome" >
-        </mat-form-field>        
+        </mat-form-field>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-stroked-button (click)="editGrupo();inputNome.value=''" color="primary">Aceitar</button>
+      <button mat-stroked-button (click)="editarGrupo();inputNome.value=''" color="primary">Aceitar</button>
       <button mat-stroked-button routerLink="/grupos">Cancelar</button>
     </mat-card-actions>
   </mat-card>

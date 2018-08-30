@@ -1,9 +1,8 @@
 <div class="main_container">
     <div class="button-row">
-        <button mat-stroked-button color="primary" routerLink="/addgrupo">Adicionar</button>
+        <button mat-stroked-button color="primary" (click)="showAdicionarGrupo()">Adicionar</button>
     </div>
-    <router-outlet style="margin-top: 80px;"></router-outlet>
-
+    <router-outlet></router-outlet>
     <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
         <!-- Checkbox Column -->
         <ng-container matColumnDef="id" hidden>
@@ -19,11 +18,11 @@
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef> A&ccedil;&otilde;es </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let grupo">
-                <button mat-icon-button (click)="showEditGrupo(grupo)">
-                    <mat-icon aria-label="Edit grupo">edit</mat-icon>
+                <button mat-icon-button (click)="showEditarGrupo(grupo)">
+                    <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-icon-button (click)="deleteGrupo(grupo)" color="warn">
-                        <mat-icon aria-label="Delete grupo">delete</mat-icon>
+                <button mat-icon-button (click)="deletarGrupo(grupo)" color="warn">
+                        <mat-icon>delete</mat-icon>
                 </button>
             </mat-cell>
         </ng-container>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { GrupoService } from '../../Service/grupo.service';
-import { Observable } from 'rxjs';
-import { DataSource } from '@angular/cdk/collections';
-import { Grupo } from '../../Interface/grupo';
 import { Router, NavigationExtras } from '@angular/router';
+
+import { GrupoService } from '../../Service/grupo.service';
+import { GrupoDataSource } from '../../grupo-data-source';
+import { Grupo } from '../../Interface/grupo';
 
 @Component({
   selector: 'app-list-grupo',
@@ -26,38 +26,26 @@ export class ListGrupoComponent implements OnInit {
     this.dataSource = new GrupoDataSource(this.grupoService);
   }
 
-  showEditGrupo(grupo) {
+  showAdicionarGrupo() {
+    this.router.navigate(['grupos/adicionar']);
+  }
+
+  showEditarGrupo(grupo: Grupo) {
     let grupoParams: NavigationExtras = {
       queryParams: {
         id: grupo.id,
         nome: grupo.nome
-      }
+      },
+      skipLocationChange: true
     };
-    this.router.navigate(['editgrupo'], grupoParams);
+    this.router.navigate(['grupos/editar'], grupoParams);
   }
 
-  /* updateUser() {
-     this.userService.updateUser(this.userUpdated).subscribe(data => {
-       console.log(data);
-     })
-   }*/
-
-  deleteGrupo(grupo): void {
-    this.grupoService.deleteGrupoService(grupo.id).subscribe(data => {
+  deletarGrupo(grupo): void {
+    this.grupoService.deletarGrupoService(grupo.id).subscribe(data => {
      this.loadData();
     });
   }
 }
 
-export class GrupoDataSource extends DataSource<any> {
 
-  constructor(private grupoService: GrupoService) {
-    super();
-  }
-
-  connect(): Observable<Grupo[]> {
-    return this.grupoService.getData();
-  }
-  disconnect() { }
-
-}

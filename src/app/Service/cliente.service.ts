@@ -10,10 +10,10 @@ const httpOptions = {
     'Content-Type': 'application/json'
   })
 };
-
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClienteService {
   private baseUrl = environment.baseUrl;
 
@@ -31,8 +31,13 @@ export class ClienteService {
     const newCliente = Object.assign({}, cliente);
     return this.http.post<Cliente>(url, newCliente, httpOptions);
   }
+  /* Update a client*/
+  atualizarClienteService (cliente: Cliente): Observable<Cliente> {
+    const url = `${this.baseUrl}/clientes`;
+    return this.http.put<Cliente>(url, cliente, httpOptions);
+  }
   /* Delete a client*/
-  deleteClienteService(id: number): Observable<Cliente> {
+  deletarClienteService(id: number): Observable<Cliente> {
     const url = `${this.baseUrl}/clientes/${id}`;
     return this.http.delete<Cliente>(url, httpOptions);
   }

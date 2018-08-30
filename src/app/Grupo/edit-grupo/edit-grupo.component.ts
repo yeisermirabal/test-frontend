@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+
 import { GrupoService } from '../../Service/grupo.service';
 import { Grupo } from '../../Interface/grupo';
 
@@ -14,7 +15,7 @@ export class EditGrupoComponent implements OnInit {
   nome: string;
   id: number;
 
-  constructor(private route: ActivatedRoute, private router: Router, private grupoService: GrupoService) { 
+  constructor(private route: ActivatedRoute, private router: Router, private grupoService: GrupoService) {
     this.route.queryParams.subscribe(params => {
       this.id = params.id;
       this.nome = params.nome;
@@ -24,14 +25,11 @@ export class EditGrupoComponent implements OnInit {
   ngOnInit() {
   }
 
-  editGrupo(): void {
-   //   console.log(this.nome+' SFEEREWR');
-    const newGrupo: Grupo = { id:this.id, nome:this.nome } as Grupo;
-    this.grupoService.updateGrupoService(newGrupo).subscribe((data) => {
-      console.log(data);
-      this.router.navigate(['/grupos']);
+  editarGrupo(): void {
+    const newGrupo: Grupo = { id: this.id, nome: this.nome } as Grupo;
+    this.grupoService.atualizarGrupoService(newGrupo).subscribe((data) => {
+      this.router.navigate(['grupos']);
     });
-
-  }   
+  }
 
 }

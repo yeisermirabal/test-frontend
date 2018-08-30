@@ -1,3 +1,29 @@
-<p>
-  edit-client works!
-</p>
+<mat-card class="card_container">
+  <mat-card-header>
+    <mat-card-title>Editar um cliente</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput hidden #inputIdCliente [(ngModel)]="id" [value]="id">
+        <input matInput #inputNomeCliente placeholder="Nome" [(ngModel)]="nome" [value]="nome">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select #selectGrupoCliente placeholder="Grupo" [(ngModel)] = "grupoId" [value]="grupoId" [compareWith]="">
+          <mat-option *ngFor="let grupo of grupos" value="{{grupo.id}}">{{grupo.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #inputCEPCliente placeholder="CEP"  [(ngModel)] = "cep" [value]="cep">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #inputCidadeCliente maxlength="80" minlength="3" placeholder="Cidade"  [(ngModel)] = "cidade" [value]="cidade">
+        <mat-hint align="end">{{inputCidadeCliente.value?.length || 3}}/80</mat-hint>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-stroked-button (click)="editarCliente();inputNomeCliente.value='';inputCEPCliente.value='';inputCidadeCliente.value=''" color="primary">Aceitar</button>
+    <button mat-stroked-button routerLink="/clientes">Cancelar</button>
+  </mat-card-actions>
+</mat-card>
