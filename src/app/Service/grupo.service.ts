@@ -25,6 +25,12 @@ export class GrupoService {
     return this.http.get<Grupo[]>(this.serviceUrl);
   }
 
+  /* Get data from the api */
+  getGrupo(id: number): Observable<Grupo> {
+
+    return this.http.get<Grupo>(this.serviceUrl + '/' + id );
+  }
+
   /*Create a group*/
   criarGrupoService(grupo: Grupo): Observable<Grupo> {
     const newGrupo = Object.assign({}, grupo);
