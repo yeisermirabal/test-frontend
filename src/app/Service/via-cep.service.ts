@@ -9,10 +9,10 @@ import { Address } from '../Interface/address';
 })
 export class ViaCepService {
 
-constructor(private httpClient: HttpClient) { }
+constructor(private http: HttpClient) { }
 
-getAddressByZipCode(zipcode: string): Observable<Address> {
-return this.httpClient.get<Address>(`https://viacep.com.br/ws/${zipcode}/json/`);
+getAddressByCepCode(cep: string): Observable<Address> {
+return this.http.get<Address>(`https://viacep.com.br/ws/${cep}/json/`);
 }
 
 }

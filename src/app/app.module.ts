@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 /*Components related to Clients*/
 import { AddClienteComponent } from './Cliente/add-cliente/add-cliente.component';
@@ -44,7 +44,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     MaterialModule,
     HttpClientModule,
     LayoutModule,
-    FormsModule
+    FormsModule,
+    TextMaskModule
   ],
   providers: [ClienteService, GrupoService, ViaCepService],
   bootstrap: [AppComponent]
