@@ -6,7 +6,7 @@
 
 <mat-table class="mat-elevation-z8" [dataSource]="dataSourceClientes">
     <!-- Checkbox Column -->
-    <ng-container matColumnDef="id" hidden>
+    <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
       <mat-cell *matCellDef="let cliente"> {{cliente.id}} </mat-cell>
   </ng-container>

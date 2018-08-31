@@ -6,12 +6,14 @@
       <!-- The form goes here -->
       <div class="example-container">
         <mat-form-field>
-          <input matInput #inputNome placeholder="Nome" [(ngModel)] = "nome">
-        </mat-form-field>        
+          <input matInput #inputNomeGrupo placeholder="Nome" [(ngModel)] = "nome">
+          <mat-hint align="end">{{inputNomeGrupo.value?.length || 3}}/60</mat-hint>
+        </mat-form-field>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-stroked-button (click)="criarGrupo(inputNome.value);inputNome.value=''" color="primary">Aceitar</button>
+      <button mat-stroked-button (click)="criarGrupo(inputNomeGrupo.value);inputNomeGrupo.value=''" color="primary">Aceitar</button>
       <button mat-stroked-button routerLink="/grupos">Cancelar</button>
     </mat-card-actions>
   </mat-card>
+

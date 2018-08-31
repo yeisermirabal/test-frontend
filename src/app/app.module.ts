@@ -1,15 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import {FormsModule} from '@angular/forms';
-
-import {MaterialModule} from './Module/material';
-
-
 import { AppComponent } from './app.component';
+
 /*Components related to Clients*/
 import { AddClienteComponent } from './Cliente/add-cliente/add-cliente.component';
 import { EditClienteComponent } from './Cliente/edit-cliente/edit-cliente.component';
@@ -19,10 +16,12 @@ import { AddGrupoComponent } from './Grupo/add-grupo/add-grupo.component';
 import { EditGrupoComponent } from './Grupo/edit-grupo/edit-grupo.component';
 import { ListGrupoComponent } from './Grupo/list-grupo/list-grupo.component';
 /*File with routes*/
-import {routing} from "./routing";
+import {routing} from './routing';
+import {MaterialModule} from './Module/material';
 /*Import Service*/
-import {ClienteService} from "./Service/cliente.service";
-import {GrupoService} from "./Service/grupo.service";
+import {ClienteService} from './Service/cliente.service';
+import {GrupoService} from './Service/grupo.service';
+import {ViaCepService} from './Service/via-cep.service';
 import { NavigationComponent } from './navigation/navigation.component';
 
 
@@ -45,9 +44,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     MaterialModule,
     HttpClientModule,
     LayoutModule,
-    FormsModule    
+    FormsModule
   ],
-  providers: [ClienteService,GrupoService],
+  providers: [ClienteService, GrupoService, ViaCepService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

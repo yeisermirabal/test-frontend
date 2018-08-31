@@ -1,23 +1,22 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, of } from "rxjs";
-import { catchError, tap } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { environment } from "../../environments/environment";
-import { Grupo } from "../Interface/grupo";
+import { environment } from '../../environments/environment';
+import { Grupo } from '../Interface/grupo';
 
 // Header for json
 const httpOptions = {
-  headers: new HttpHeaders({ "Content-Type": "application/json" })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class GrupoService {
   // Take the url from the api and save it in a constant
   private baseUrl = environment.baseUrl;
-  private serviceUrl: string = this.baseUrl + "/grupos";
+  private serviceUrl: string = this.baseUrl + '/grupos';
 
   constructor(private http: HttpClient) {}
 

@@ -5,8 +5,9 @@
   <mat-card-content>
     <!-- The form goes here -->
     <div class="example-container">
-      <mat-form-field>
+        <mat-form-field hintLabel="Min 3 - Max 80">
         <input matInput #inputNome placeholder="Nome" [(ngModel)] = "nome">
+        <mat-hint align="end">{{inputNome.value?.length || 3}}/80</mat-hint>
       </mat-form-field>
       <mat-form-field>
         <mat-select #selectGrupo placeholder="Grupo" [(ngModel)] = "grupo">
@@ -14,7 +15,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <input matInput #inputCEP placeholder="CEP"  [(ngModel)] = "cep">
+        <input matInput #inputCEP placeholder="CEP"  [(ngModel)] = "cep" (blur)="pesquisaCEP(inputCEP.value)">
       </mat-form-field>
       <mat-form-field hintLabel="Min 3 - Max 80">
         <input matInput #inputCidade maxlength="80" minlength="3" placeholder="Cidade"  [(ngModel)] = "cidade">
@@ -27,3 +28,4 @@
     <button mat-stroked-button routerLink="/clientes">Cancelar</button>
   </mat-card-actions>
 </mat-card>
+

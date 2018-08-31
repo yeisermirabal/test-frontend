@@ -5,8 +5,9 @@
     <mat-card-content>
       <div class="example-container">
         <mat-form-field>
-            <input matInput hidden #inputId [(ngModel)] = "id" [value]="id" >
-          <input matInput #inputNome placeholder="Nome" [(ngModel)] = "nome" [value]="nome" >
+            <input matInput hidden #inputIdGrupo [(ngModel)] = "id" [value]="id" >
+          <input matInput #inputNomeGrupo placeholder="Nome" [(ngModel)] = "nome" [value]="nome" >
+          <mat-hint align="end">{{inputNomeGrupo.value?.length || 3}}/60</mat-hint>
         </mat-form-field>
       </div>
     </mat-card-content>
