@@ -1,0 +1,17 @@
+-poner tooltips a los botones indicando la función que hacen
+-poner mensajes informativos en las interacciones
+-validar CRUD cliente
+   adicionar
+   editar
+   eliminar
+
+-validar CRUD grupo
+   adicionar
+   editar
+   eliminar
+
+-arreglar vista inicial (poner 2 imágenes que digan Grupos: <cantidad>   Clientes: <cantidad>  )
+-revisar que todos los textos estén en portugués
+-agrgar filtro de nombre a los CRUD
+   filtro en CRUD cliente
+   filtro en CRUD grupo
