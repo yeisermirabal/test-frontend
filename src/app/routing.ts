@@ -13,7 +13,7 @@ const routes: Routes = [
     {path: 'clientes/editar', component: EditClienteComponent},
     {path: 'clientes/adicionar', component: AddClienteComponent},
     {path: 'grupos', component: ListGrupoComponent},
-    {path: 'grupos/editar', component: EditGrupoComponent},
+    {path: 'grupos/editar/:id', component: EditGrupoComponent},
     {path: 'grupos/adicionar', component: AddGrupoComponent}
   ];
 

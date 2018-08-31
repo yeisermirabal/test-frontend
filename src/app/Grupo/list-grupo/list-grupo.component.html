@@ -18,7 +18,7 @@
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef> A&ccedil;&otilde;es </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let grupo">
-                <button mat-icon-button (click)="showEditarGrupo(grupo)">
+                <button mat-icon-button (click)="showEditarGrupo(grupo.id)">
                     <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-icon-button (click)="deletarGrupo(grupo)" color="warn">
