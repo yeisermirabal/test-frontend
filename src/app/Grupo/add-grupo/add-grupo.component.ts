@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GrupoService } from '../../Service/grupo.service';
-import { Grupo } from '../../Interface/grupo';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-grupo',
@@ -9,26 +9,25 @@ import { Grupo } from '../../Interface/grupo';
   providers: [GrupoService],
   styleUrls: ['./add-grupo.component.css']
 })
+
+
 export class AddGrupoComponent implements OnInit {
-  grupo: Grupo;
+
+  grupo: FormGroup;
 
   constructor(private router: Router, private grupoService: GrupoService) {
+    this.grupo = new FormGroup({
+      nome: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(60)])
+    });
   }
 
   ngOnInit() {
   }
 
-  /*Take data sended from view and send it to the service */
-  criarGrupo(nome: string): void {
-    nome = nome.trim();
-    if (!nome) { return; }
-
-    const newGrupo: Grupo = { nome } as Grupo;
-    this.grupoService.criarGrupoService(newGrupo).subscribe((data) => {
-      console.log(data);
+  onSubmit() {
+    this.grupoService.criarGrupoService(this.grupo.value).subscribe((data) => {
       this.router.navigate(['/grupos']);
     });
-
   }
 
 }
