@@ -16,10 +16,10 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <input matInput #cep class="form-control" id="cep" type="text" placeholder="CEP" formControlName="cep" [textMask]="{mask: cepMask, placeholderChar: '\u2000', guide: false }" (blur)="pesquisaCEP()"/>
+        <input matInput #cep id="cep" placeholder="CEP" formControlName="cep" [textMask]="{mask: cepMask, placeholderChar: '\u2000', guide: false }" (blur)="pesquisaCEP()"/>
       </mat-form-field>
       <mat-form-field hintLabel="Min 3 - Max 80">
-        <input matInput #inputCidade maxlength="80" minlength="3" placeholder="Cidade" formControlName="cidade">
+        <input matInput #inputCidade placeholder="Cidade" formControlName="cidade">
         <mat-hint align="end">{{inputCidade.value?.length || 0}}/80</mat-hint>
       </mat-form-field>
     </div>

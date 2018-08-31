@@ -6,9 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GrupoService } from '../../Service/grupo.service';
 import { ClienteService } from '../../Service/cliente.service';
 import { Grupo } from '../../Interface/grupo';
-import { Cliente } from './../../Interface/cliente';
 import { ViaCepService } from '../../Service/via-cep.service';
-import { Address } from '../../Interface/address';
 
 @Component({
   selector: 'app-add-cliente',
@@ -17,7 +15,6 @@ import { Address } from '../../Interface/address';
 })
 export class AddClienteComponent implements OnInit {
   cliente: FormGroup;
-  /*Client Attributes*/
   gruposDataSelect: Grupo[];
   cepMask = [/[0-9]/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
@@ -30,13 +27,17 @@ export class AddClienteComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.cliente = new FormGroup({        
-      nome: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]),
+    this.cliente = new FormGroup({
+      nome: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(80),
+        Validators.pattern('^[A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙ]{1}[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+$')]),
       grupo: new FormGroup({
         id: new FormControl('', [Validators.required])
       }),
       cep: new FormControl(''),
-      cidade: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(80)])      
+      cidade: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(80)])
     });
     this.grupoService.getData().subscribe(data => {
       this.gruposDataSelect = data;
@@ -52,7 +53,7 @@ export class AddClienteComponent implements OnInit {
     });
   }
 
-  pesquisaCEP() {    
+  pesquisaCEP() {
     const cep = this.cliente.value.cep.replace('-', '');
 
     if (this.verifyCepCode(cep)) {
@@ -67,7 +68,7 @@ export class AddClienteComponent implements OnInit {
           } else {
             this.cliente.patchValue({
               cidade: address.localidade
-            });            
+            });
           }
         },
         error => {

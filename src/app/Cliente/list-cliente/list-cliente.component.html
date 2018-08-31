@@ -1,51 +1,55 @@
-<div  class="main_container">
-<div class="button-row">
+<div class="main_container">
+  <div class="button-row">
     <button mat-stroked-button color="primary" (click)="showAdicionarCliente()">Adicionar</button>
-</div>
-<router-outlet  style="margin-top: 80px;"></router-outlet>
+    <mat-form-field class="filter_table">
+      <input matInput (keyup)="filterCliente($event.target.value)" placeholder="Filter" >
+    </mat-form-field>
+  </div>
+  <router-outlet style="margin-top: 80px;"></router-outlet>
 
-<mat-table class="mat-elevation-z8" [dataSource]="dataSourceClientes">
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSourceClientes" style="clear:both">
     <!-- Checkbox Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
       <mat-cell *matCellDef="let cliente"> {{cliente.id}} </mat-cell>
-  </ng-container>
+    </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="nome">
-        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-        <mat-cell *matCellDef="let cliente"> {{cliente.nome}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{cliente.nome}} </mat-cell>
     </ng-container>
 
     <!-- CEP Column -->
     <ng-container matColumnDef="cep">
-        <mat-header-cell *matHeaderCellDef> CEP </mat-header-cell>
-        <mat-cell *matCellDef="let cliente"> {{cliente.cep}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> CEP </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{cliente.cep}} </mat-cell>
     </ng-container>
 
     <!-- Cidade Column -->
     <ng-container matColumnDef="cidade">
-        <mat-header-cell *matHeaderCellDef> Cidade </mat-header-cell>
-        <mat-cell *matCellDef="let cliente"> {{cliente.cidade}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Cidade </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{cliente.cidade}} </mat-cell>
     </ng-container>
 
     <!-- Grupo Column -->
     <ng-container matColumnDef="grupo">
-        <mat-header-cell *matHeaderCellDef> Grupo </mat-header-cell>
-        <mat-cell *matCellDef="let cliente"> {{cliente.grupo.nome}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Grupo </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{cliente.grupo.nome}} </mat-cell>
     </ng-container>
     <!-- Actions-->
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef> A&ccedil;&otilde;es </mat-header-cell>
       <mat-cell mat-cell *matCellDef="let cliente">
-          <button mat-icon-button (click)="showEditarCliente(cliente)">
-              <mat-icon aria-label="">edit</mat-icon>
-          </button>
-          <button mat-icon-button (click)="deletarCliente(cliente.id)" color="warn">
-                  <mat-icon aria-label="">delete</mat-icon>
-          </button>
+        <button mat-icon-button (click)="showEditarCliente(cliente)">
+          <mat-icon aria-label="">edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deletarCliente(cliente.id)" color="warn">
+          <mat-icon aria-label="">delete</mat-icon>
+        </button>
       </mat-cell>
-  </ng-container>
+    </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>

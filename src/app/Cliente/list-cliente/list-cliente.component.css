@@ -7,5 +7,10 @@ table {
   }
   .button-row button {
   margin-right: 8px;
-  margin-bottom: 8px;
+ margin-top: 10px;
+}
+ .filter_table {
+  font-size: 14px;
+  width: 30%;
+  float: right;
 }
