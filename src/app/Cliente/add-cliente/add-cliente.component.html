@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit(cliente)" [formGroup]="cliente" novalidate >
+<form (ngSubmit)="criarCliente()" [formGroup]="cliente" novalidate >
 <mat-card class="card_container">
   <mat-card-header>
     <mat-card-title>Adicionar um cliente</mat-card-title>
@@ -7,20 +7,20 @@
     <!-- The form goes here -->
     <div class="example-container">
       <mat-form-field hintLabel="Min 3 - Max 80">
-        <input matInput #inputNome placeholder="Nome" [(ngModel)] = "nome" formControlName="nome" required="inputNome" [ngModelOptions]="{standalone: true}">
-        <mat-hint align="end">{{inputNome.value?.length || 3}}/80</mat-hint>
+        <input matInput #inputNome placeholder="Nome" formControlName="nome">
+        <mat-hint align="end">{{inputNome.value?.length || 0}}/80</mat-hint>
       </mat-form-field>
-      <mat-form-field>
-        <mat-select #selectGrupo placeholder="Grupo" [(ngModel)] = "grupo" formControlName="grupo" required [ngModelOptions]="{standalone: true}">
-          <mat-option *ngFor="let grupo of grupos" value="{{grupo.id}}">{{grupo.nome}}</mat-option>
+      <mat-form-field  formGroupName="grupo">
+        <mat-select #selectGrupo placeholder="Grupo" formControlName="id">
+          <mat-option *ngFor="let grupo of gruposDataSelect" value="{{grupo.id}}">{{grupo.nome}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <input matInput #cep class="form-control" id="cep" type="text" placeholder="CEP" formControlName="cep" [(ngModel)]="cepModel" [textMask]="{mask: cepMask, placeholderChar: '\u2000', guide: false }" [ngModelOptions]="{standalone: true}" required (blur)="pesquisaCEP(cep.value)"/>
+        <input matInput #cep class="form-control" id="cep" type="text" placeholder="CEP" formControlName="cep" [textMask]="{mask: cepMask, placeholderChar: '\u2000', guide: false }" (blur)="pesquisaCEP()"/>
       </mat-form-field>
       <mat-form-field hintLabel="Min 3 - Max 80">
-        <input matInput #inputCidade maxlength="80" minlength="3" placeholder="Cidade" formControlName="cidade"  [(ngModel)] = "cidade" required [ngModelOptions]="{standalone: true}" >
-        <mat-hint align="end">{{inputCidade.value?.length || 3}}/80</mat-hint>
+        <input matInput #inputCidade maxlength="80" minlength="3" placeholder="Cidade" formControlName="cidade">
+        <mat-hint align="end">{{inputCidade.value?.length || 0}}/80</mat-hint>
       </mat-form-field>
     </div>
   </mat-card-content>
