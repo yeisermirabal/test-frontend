@@ -17,6 +17,9 @@
   border-bottom: 1px solid #dadce0;
   z-index: 999999;
 }
+.mat-toolbar img:hover{
+  cursor:pointer;
+}
 .logo_toolbar{
   width: 190px;
   height: auto;
@@ -27,6 +30,9 @@
 .logo_toolbar img{
   width:100%;
    height: auto;
+}
+.logo_toolbar img:hover{
+  cursor:pointer;
 }
 .mat-nav-list{
   margin-top: 55px;

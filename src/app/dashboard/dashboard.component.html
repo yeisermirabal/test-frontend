@@ -5,11 +5,11 @@
       <mat-card class="dashboard-card card_group">
         <mat-card-header>
           <mat-card-title>
-            Grupos
+              {{card.title}}
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>24</div>
+          <div>{{cantidadGrupos}}</div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -17,11 +17,11 @@
       <mat-card class="dashboard-card card_client">
         <mat-card-header>
           <mat-card-title>
-           Clientes
+              {{card.title}}
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>21</div>
+          <div>{{cantidadClientes}}</div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
