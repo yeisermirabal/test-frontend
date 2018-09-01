@@ -34,7 +34,7 @@ export class EditClienteComponent implements OnInit {
       grupo: new FormGroup({
         id: new FormControl('', [Validators.required])
       }),
-      cep: new FormControl('', [Validators.required]),
+      cep: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
       cidade: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(80)])
     });
     this.grupoService.getData().subscribe(data => {

@@ -7,7 +7,7 @@
    editar
    eliminar
 
--validar CRUD grupo
+-validar CRUD grupo (OK)
    adicionar
    editar
    eliminar
@@ -16,12 +16,14 @@
 
 -revisar que todos los textos estén en portugués
 
--agrgar filtro de nombre a los CRUD
+-agrgar filtro de nombre a los CRUD 
    filtro en CRUD cliente
    filtro en CRUD grupo
 
--cambiar nombres de funciones y codigo y ponerlo en portugues
+-cambiar nombres de funciones y código y ponerlo en portugues
 
 -preguntar al usuario antes de eliminar registros
+
+-quitar selección del logo después de hacer click (se queda un recuadro en la imagen)
 
 
