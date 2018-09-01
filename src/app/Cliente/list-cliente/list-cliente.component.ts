@@ -1,18 +1,18 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { Router, NavigationExtras } from "@angular/router";
-import { MatPaginator, MatSort, MatTableDataSource } from "@angular/material";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
-import { ClienteService } from "../../Service/cliente.service";
-import { Cliente } from "../../Interface/cliente";
+import { ClienteService } from '../../Service/cliente.service';
+import { Cliente } from '../../Interface/cliente';
 
 @Component({
-  selector: "app-list-cliente",
-  templateUrl: "./list-cliente.component.html",
-  styleUrls: ["./list-cliente.component.css"]
+  selector: 'app-list-cliente',
+  templateUrl: './list-cliente.component.html',
+  styleUrls: ['./list-cliente.component.css']
 })
 export class ListClienteComponent implements OnInit {
   dataSourceClientes: MatTableDataSource<Cliente>;
-  displayedColumns = ["id", "nome", "cep", "cidade", "grupo", "actions"];
+  displayedColumns = ['id', 'nome', 'cep', 'cidade', 'grupo', 'actions'];
 
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
@@ -36,21 +36,11 @@ export class ListClienteComponent implements OnInit {
   }
 
   showAdicionarCliente() {
-    this.router.navigate(["clientes/adicionar"]);
+    this.router.navigate(['clientes/adicionar']);
   }
 
-  showEditarCliente(cliente: Cliente) {
-    const clienteParams: NavigationExtras = {
-      queryParams: {
-        id: cliente.id,
-        nome: cliente.nome,
-        cep: cliente.cep,
-        cidade: cliente.cidade,
-        grupo: cliente.grupo.id
-      },
-      skipLocationChange: true
-    };
-    this.router.navigate(["clientes/editar"], clienteParams);
+  showEditarCliente(id: number) {
+    this.router.navigate(['clientes/editar', id]);
   }
 
   deletarCliente(id): void {

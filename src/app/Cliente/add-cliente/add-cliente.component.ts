@@ -22,9 +22,9 @@ export class AddClienteComponent implements OnInit {
     private router: Router,
     private clienteService: ClienteService,
     private grupoService: GrupoService,
-   // private toastr: ToastrService,
+    // private toastr: ToastrService,
     private viaCepService: ViaCepService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.cliente = new FormGroup({
@@ -36,7 +36,7 @@ export class AddClienteComponent implements OnInit {
       grupo: new FormGroup({
         id: new FormControl('', [Validators.required])
       }),
-      cep: new FormControl(''),
+      cep: new FormControl('', [Validators.minLength(9), Validators.maxLength(9)]),
       cidade: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(80)])
     });
     this.grupoService.getData().subscribe(data => {
@@ -47,51 +47,22 @@ export class AddClienteComponent implements OnInit {
   /*Take data sended from view and send it to the service */
   criarCliente(): void {
     this.clienteService
-    .criarClienteService(this.cliente.value)
-    .subscribe(data => {
-      this.router.navigate(['/clientes']);
-    });
+      .criarClienteService(this.cliente.value)
+      .subscribe(data => {
+        this.router.navigate(['/clientes']);
+      });
   }
 
   pesquisaCEP() {
     const cep = this.cliente.value.cep.replace('-', '');
 
-    if (this.verifyCepCode(cep)) {
-      this.viaCepService.getAddressByCepCode(cep).subscribe(
-        address => {
-          if (address.erro === true) {
-            this.cliente.patchValue({
-              cidade: undefined
-            });
-            alert('ZIP Code not found.');
-           // this.toastr.warning("ZIP Code not found.", "Ops...");
-          } else {
-            this.cliente.patchValue({
-              cidade: address.localidade
-            });
-          }
-        },
-        error => {
-          alert('Error: ${error.message}.');
-      //    this.toastr.error("Error: ${error.message}.", "Ops...");
-      this.cliente.patchValue({
-        cidade: undefined
-      });
-        }
-      );
-    } else {
-      alert('Enter a valid ZIP Code.');
-     // this.toastr.error("Enter a valid ZIP Code.", "Ops...");
-     this.cliente.patchValue({
-      cidade: undefined
+    this.viaCepService.getAddressByCepCode(cep).subscribe(data => {
+      if (data.erro !== true) {
+        this.cliente.patchValue({
+          cidade: data.localidade
+        });
+      }
     });
-    }
   }
 
-  verifyCepCode(cep: string): boolean {
-    if (cep.length === 8) {
-      return true;
-    }
-    return false;
-  }
 }

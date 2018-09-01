@@ -17,7 +17,7 @@ const httpOptions = {
 export class ClienteService {
   private baseUrl = environment.baseUrl;
 
-  private serviceUrl: string = `${this.baseUrl}/clientes`;
+  private serviceUrl = `${this.baseUrl}/clientes`;
 
   constructor(private http: HttpClient) {}
 
@@ -25,6 +25,11 @@ export class ClienteService {
   getData(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.serviceUrl);
   }
+
+  getCliente(id: number): Observable<Cliente> {
+    return this.http.get<Cliente>(this.serviceUrl + '/' + id);
+  }
+
   /*Create a client*/
   criarClienteService(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(this.serviceUrl, cliente, httpOptions);
@@ -35,7 +40,7 @@ export class ClienteService {
   }
   /* Delete a client*/
   deletarClienteService(id: number): Observable<Cliente> {
-    const url = this.serviceUrl+`/${id}`;
+    const url = this.serviceUrl + `/${id}`;
     return this.http.delete<Cliente>(url, httpOptions);
   }
 }

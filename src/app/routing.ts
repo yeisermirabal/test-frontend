@@ -14,7 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   {path: '', component: DashboardComponent},
     {path: 'clientes', component: ListClienteComponent},
-    {path: 'clientes/editar', component: EditClienteComponent},
+    {path: 'clientes/editar/:id', component: EditClienteComponent},
     {path: 'clientes/adicionar', component: AddClienteComponent},
     {path: 'grupos', component: ListGrupoComponent},
     {path: 'grupos/editar/:id', component: EditGrupoComponent},
