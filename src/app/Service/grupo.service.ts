@@ -27,7 +27,6 @@ export class GrupoService {
 
   /* Get data from the api */
   getGrupo(id: number): Observable<Grupo> {
-
     return this.http.get<Grupo>(this.serviceUrl + '/' + id );
   }
 
@@ -44,5 +43,9 @@ export class GrupoService {
   deletarGrupoService(id: number): Observable<Grupo> {
     const url = `${this.baseUrl}/grupos/${id}`;
     return this.http.delete<Grupo>(url, httpOptions);
+  }
+
+  getCantidadGrupos(): Observable<any> {
+    return this.http.get(this.serviceUrl + '/count');
   }
 }

@@ -22,10 +22,9 @@ import {MaterialModule} from './Module/material';
 import {ClienteService} from './Service/cliente.service';
 import {GrupoService} from './Service/grupo.service';
 import {ViaCepService} from './Service/via-cep.service';
+
 import { NavigationComponent } from './navigation/navigation.component';
-
-
-
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +34,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     AddGrupoComponent,
     EditGrupoComponent,
     ListGrupoComponent,
-    NavigationComponent
+    NavigationComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

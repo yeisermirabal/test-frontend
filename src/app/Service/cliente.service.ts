@@ -43,4 +43,7 @@ export class ClienteService {
     const url = this.serviceUrl + `/${id}`;
     return this.http.delete<Cliente>(url, httpOptions);
   }
+  getCantidadClientes(): Observable<any> {
+    return this.http.get(this.serviceUrl + '/count');
+  }
 }
