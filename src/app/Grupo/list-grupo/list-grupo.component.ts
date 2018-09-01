@@ -31,7 +31,8 @@ export class ListGrupoComponent implements OnInit {
   }
 
   showEditarGrupo(id: number) {
-    this.router.navigate(['grupos/editar', id]);}
+    this.router.navigate(['grupos/editar', id]);
+  }
 
   deletarGrupo(grupo): void {
     this.grupoService.deletarGrupoService(grupo.id).subscribe(data => {

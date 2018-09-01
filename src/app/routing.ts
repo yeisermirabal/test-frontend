@@ -10,7 +10,7 @@ import { ListGrupoComponent } from './Grupo/list-grupo/list-grupo.component';
 
 const routes: Routes = [
     {path: 'clientes', component: ListClienteComponent},
-    {path: 'clientes/editar', component: EditClienteComponent},
+    {path: 'clientes/editar/:id', component: EditClienteComponent},
     {path: 'clientes/adicionar', component: AddClienteComponent},
     {path: 'grupos', component: ListGrupoComponent},
     {path: 'grupos/editar/:id', component: EditGrupoComponent},

@@ -1,6 +1,6 @@
 -poner tooltips a los botones indicando la función que hacen
 
--poner mensajes informativos en las interacciones
+-poner mensajes informativos en las interacciones (validaciones, etc)
 
 -validar CRUD cliente
    adicionar
@@ -20,4 +20,6 @@
    filtro en CRUD cliente
    filtro en CRUD grupo
 
--cambiar nombres de funciones y codigo al portugues
+-cambiar nombres de funciones y codigo y ponerlo en portugues
+
+
