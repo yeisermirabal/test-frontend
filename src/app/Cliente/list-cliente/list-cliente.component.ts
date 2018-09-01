@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
+import { MatPaginator, MatSort, MatTableDataSource, MdPaginatorIntl } from '@angular/material';
 
 import { ClienteService } from '../../Service/cliente.service';
 import { Cliente } from '../../Interface/cliente';
@@ -32,8 +32,10 @@ export class ListClienteComponent implements OnInit {
       this.dataSourceClientes = new MatTableDataSource(data);
       this.dataSourceClientes.paginator = this.paginator;
       this.dataSourceClientes.sort = this.sort;
+
     });
   }
+
 
   showAdicionarCliente() {
     this.router.navigate(['clientes/adicionar']);
@@ -52,5 +54,13 @@ export class ListClienteComponent implements OnInit {
   filterCliente(filterValue: string) {
     filterValue = filterValue.trim().toLowerCase();
     this.dataSourceClientes.filter = filterValue;
+  }
+
+  getPortuguesPaginatorIntl() {
+    const paginatorIntl = new MdPaginatorIntl();
+    paginatorIntl.itemsPerPageLabel = 'Itens por página:';
+    paginatorIntl.nextPageLabel = 'Página seguinte';
+    paginatorIntl.previousPageLabel = 'Página anterior';
+    return paginatorIntl;
   }
 }

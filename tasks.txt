@@ -12,11 +12,11 @@
    editar
    eliminar
 
--arreglar vista inicial (poner 2 imágenes que digan Grupos: <cantidad>   Clientes: <cantidad>  )
+-arreglar vista inicial (poner 2 imágenes que digan Grupos: <cantidad>   Clientes: <cantidad>  ) (OK)
 
 -revisar que todos los textos estén en portugués
 
--agrgar filtro de nombre a los CRUD 
+-agrgar filtro de nombre a los CRUD (OK)
    filtro en CRUD cliente
    filtro en CRUD grupo
 
@@ -25,5 +25,7 @@
 -preguntar al usuario antes de eliminar registros
 
 -quitar selección del logo después de hacer click (se queda un recuadro en la imagen)
+
+- esconder ir en Tablas y poner numeración
 
 
