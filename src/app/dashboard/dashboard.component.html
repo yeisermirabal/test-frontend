@@ -1,0 +1,29 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Quadro de avisos</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card card_group">
+        <mat-card-header>
+          <mat-card-title>
+            Grupos
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>24</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile *ngFor="let card of cards1 | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card card_client">
+        <mat-card-header>
+          <mat-card-title>
+           Clientes
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>21</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

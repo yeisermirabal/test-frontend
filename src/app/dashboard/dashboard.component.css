@@ -1,0 +1,57 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+.mat-h1{
+  margin-left: 15px;
+
+}
+.mat-card-content, .mat-card-title {
+  font-size: 60px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: left;
+}
+
+.dashboard-card-content {
+  position: relative;
+  top: 0;
+  padding-left:30px;
+}
+.card_group{
+  background-image: url('../../assets/grupos.png') !important;
+  background-color: #3597db;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.card_client{
+  background-image: url('../../assets/clientes.png') !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #1abb9c;
+}
+
+@media only screen and (max-width: 1160px) {
+  .mat-card-content, .mat-card-title {
+    font-size: 50px;
+  }
+  .card_group{
+    background-image: url('../../assets/grupos-450x330.png') !important;
+  }
+  .card_client{
+    background-image: url('../../assets/clientes-450x330.png') !important;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .mat-card-content, .mat-card-title {
+    font-size: 40px;
+  }
+}
+

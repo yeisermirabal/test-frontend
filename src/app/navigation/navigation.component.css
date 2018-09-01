@@ -10,11 +10,26 @@
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.35);
 }
 .mat-toolbar.mat-primary {
-  position: sticky;
+  position: fixed;
   top: 0;
   background: #fafafa;
   color: #5f6368;
   border-bottom: 1px solid #dadce0;
+  z-index: 999999;
+}
+.logo_toolbar{
+  width: 190px;
+  height: auto;
+  margin-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+.logo_toolbar img{
+  width:100%;
+   height: auto;
+}
+.mat-nav-list{
+  margin-top: 55px;
 }
 .mat-nav-list a{
   border-bottom: 1px solid #dadce0;
@@ -24,4 +39,10 @@
 }
 .menu_icons{
   margin-right:10px;
+}
+
+@media only screen and (min-width: 960px) {
+  .logo_toolbar img{
+    display: none;
+  }
 }
