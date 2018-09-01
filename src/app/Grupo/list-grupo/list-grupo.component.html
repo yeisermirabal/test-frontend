@@ -10,7 +10,7 @@
   </mat-card-header>
 
   <router-outlet></router-outlet>
-  <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSourceGrupos">
     <!-- Checkbox Column -->
     <ng-container matColumnDef="id" hidden>
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
@@ -35,6 +35,7 @@
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+   </mat-table>
+   <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
-  </mat-table>
 </div>
