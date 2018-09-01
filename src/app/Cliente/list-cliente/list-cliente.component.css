@@ -1,16 +1,37 @@
-.main_container{
-  max-width: 100%;
-  margin: 20px;
+
+
+/*.button-row {
+  text-align: left;
 }
-table {
-    width: 80%;
-  }
-  .button-row button {
-  margin-right: 8px;
- margin-top: 10px;
-}
- .filter_table {
-  font-size: 14px;
-  width: 30%;
+.mat-button {
   float: right;
 }
+.button-row button {
+  margin-right: 8px;
+  margin-top: 0px;
+  color: rgba(0, 0, 0, 0.65);
+}
+.button-row button:hover {
+  background: #e6e6e6;
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.filter_table {
+  font-size: 14px;
+  width: 20%;
+  text-align: left;
+  margin-left: 40px;
+  margin-top: -8px !important;
+}
+.mat-card-title {
+  float: left;
+  color: #444;
+  font: bold 20px "Roboto", sans-serif;
+  letter-spacing: 0;
+  margin-top: 5px;
+}
+.mat-elevation-z8 {
+  clear: both;
+}
+*/

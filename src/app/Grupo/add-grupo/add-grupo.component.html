@@ -1,4 +1,5 @@
-<mat-card class="card_container">
+<div class="main_container">
+<mat-card class="card_container" style="clear: right;">
   <mat-card-header>
     <mat-card-title>Adicionar um grupo</mat-card-title>
   </mat-card-header>
@@ -6,7 +7,7 @@
     <form class="example-container" novalidate [formGroup]="grupo" (ngSubmit)="onSubmit()">
       <div class="example-container">
         <mat-form-field hintLabel="Min 3 - Max 60">
-          <input matInput type="text" #grupoNome  placeholder="Nome" formControlName="nome" >
+          <input matInput type="text" #grupoNome placeholder="Nome" formControlName="nome">
           <mat-hint align="end">{{grupoNome.value?.length || 0 }}/60</mat-hint>
         </mat-form-field>
       </div>
@@ -17,3 +18,4 @@
     </form>
   </mat-card-content>
 </mat-card>
+</div>
