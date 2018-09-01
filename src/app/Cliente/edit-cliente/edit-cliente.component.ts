@@ -34,7 +34,7 @@ export class EditClienteComponent implements OnInit {
       grupo: new FormGroup({
         id: new FormControl('', [Validators.required])
       }),
-      cep: new FormControl('', [Validators.required]),
+      cep: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
       cidade: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(80)])
     });
     this.grupoService.getData().subscribe(data => {
@@ -62,7 +62,6 @@ export class EditClienteComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.cliente.value);
     this.clienteService.atualizarClienteService(this.cliente.value).subscribe((data) => {
       this.router.navigate(['/clientes']);
     });
@@ -71,13 +70,15 @@ export class EditClienteComponent implements OnInit {
   pesquisaCEP() {
     const cep = this.cliente.value.cep.replace('-', '');
 
-    this.viaCepService.getAddressByCepCode(cep).subscribe(
-      data => {
-        if (data.erro !== true) {
-          this.cliente.patchValue({
-            cidade: data.localidade
-          });
-        }
-      });
+    if (cep.length === 8) {
+      this.viaCepService.getAddressByCepCode(cep).subscribe(
+        data => {
+          if (data.erro !== true) {
+            this.cliente.patchValue({
+              cidade: data.localidade
+            });
+          }
+        });
+    }
   }
 }

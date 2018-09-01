@@ -2,12 +2,12 @@
 
 -poner mensajes informativos en las interacciones (validaciones, etc)
 
--validar CRUD cliente
+-validar CRUD cliente (OK)
    adicionar
    editar
    eliminar
 
--validar CRUD grupo
+-validar CRUD grupo (OK)
    adicionar
    editar
    eliminar
@@ -20,6 +20,12 @@
    filtro en CRUD cliente
    filtro en CRUD grupo
 
--cambiar nombres de funciones y codigo y ponerlo en portugues
+-cambiar nombres de funciones y código y ponerlo en portugues
+
+-preguntar al usuario antes de eliminar registros
+
+-quitar selección del logo después de hacer click (se queda un recuadro en la imagen)
+
+- esconder ir en Tablas y poner numeración
 
 
