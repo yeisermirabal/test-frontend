@@ -23,6 +23,7 @@ import {ClienteService} from './Service/cliente.service';
 import {GrupoService} from './Service/grupo.service';
 import {ViaCepService} from './Service/via-cep.service';
 import { NavigationComponent } from './navigation/navigation.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     AddGrupoComponent,
     EditGrupoComponent,
     ListGrupoComponent,
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

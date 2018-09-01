@@ -1,33 +1,40 @@
 <div class="main_container">
+  <mat-card-header class="header_table">
+    <mat-card-title>Lista de grupos</mat-card-title>
     <div class="button-row">
-        <button mat-stroked-button color="primary" (click)="showAdicionarGrupo()">Adicionar</button>
-    </div>
-    <router-outlet></router-outlet>
-    <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
-        <!-- Checkbox Column -->
-        <ng-container matColumnDef="id" hidden>
-            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-            <mat-cell *matCellDef="let grupo"> {{grupo.id}} </mat-cell>
-        </ng-container>
+        <mat-form-field class="filter_table">
+          <input matInput (keyup)="filterGrupo($event.target.value)" placeholder="Pesquisar">
+        </mat-form-field>
+        <button mat-button (click)="showAdicionarGrupo()"><mat-icon class="menu_icons">add_circle</mat-icon> Adicionar</button>
+      </div>
+  </mat-card-header>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="nome">
-            <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-            <mat-cell *matCellDef="let grupo"> {{grupo.nome}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="actions">
-            <mat-header-cell *matHeaderCellDef> A&ccedil;&otilde;es </mat-header-cell>
-            <mat-cell mat-cell *matCellDef="let grupo">
-                <button mat-icon-button (click)="showEditarGrupo(grupo.id)">
-                    <mat-icon>edit</mat-icon>
-                </button>
-                <button mat-icon-button (click)="deletarGrupo(grupo)" color="warn">
-                        <mat-icon>delete</mat-icon>
-                </button>
-            </mat-cell>
-        </ng-container>
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <router-outlet></router-outlet>
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="id" hidden>
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let grupo"> {{grupo.id}} </mat-cell>
+    </ng-container>
 
-    </mat-table>
+    <!-- Name Column -->
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let grupo"> {{grupo.nome}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> A&ccedil;&otilde;es </mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let grupo">
+        <button mat-icon-button (click)="showEditarGrupo(grupo.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deletarGrupo(grupo)" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
 </div>

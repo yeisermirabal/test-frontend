@@ -1,13 +1,16 @@
 <div class="main_container">
-  <div class="button-row">
-    <button mat-stroked-button color="primary" (click)="showAdicionarCliente()">Adicionar</button>
-    <mat-form-field class="filter_table">
-      <input matInput (keyup)="filterCliente($event.target.value)" placeholder="Filter" >
-    </mat-form-field>
-  </div>
-  <router-outlet style="margin-top: 80px;"></router-outlet>
+  <mat-card-header class="header_table">
+    <mat-card-title>Lista de clientes</mat-card-title>
+    <div class="button-row">
+      <mat-form-field class="filter_table">
+        <input matInput (keyup)="filterCliente($event.target.value)" placeholder="Pesquisar">
+      </mat-form-field>
+      <button mat-button (click)="showAdicionarCliente()"><mat-icon class="menu_icons">add_circle</mat-icon> Adicionar</button>
+    </div>
+  </mat-card-header>
+  <router-outlet></router-outlet>
 
-  <mat-table class="mat-elevation-z8" [dataSource]="dataSourceClientes" style="clear:both">
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSourceClientes">
     <!-- Checkbox Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
@@ -51,5 +54,5 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>

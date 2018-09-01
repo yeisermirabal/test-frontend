@@ -1,12 +1,27 @@
 .sidenav-container {
-  height: 100%;
+  height: auto;
 }
-
+.sidenav_content{
+  background: #eeeeee;
+}
 .sidenav {
   width: 200px;
+  background: #fafafa;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.35);
 }
-
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
+  background: #fafafa;
+  color: #5f6368;
+  border-bottom: 1px solid #dadce0;
+}
+.mat-nav-list a{
+  border-bottom: 1px solid #dadce0;
+}
+.mat-nav-list a:hover{
+  color:#4285f4;
+}
+.menu_icons{
+  margin-right:10px;
 }
