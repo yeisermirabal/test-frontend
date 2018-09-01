@@ -2,7 +2,7 @@
 
 -poner mensajes informativos en las interacciones (validaciones, etc)
 
--validar CRUD cliente
+-validar CRUD cliente (OK)
    adicionar
    editar
    eliminar
@@ -21,5 +21,7 @@
    filtro en CRUD grupo
 
 -cambiar nombres de funciones y codigo y ponerlo en portugues
+
+-preguntar al usuario antes de eliminar registros
 
 

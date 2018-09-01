@@ -71,13 +71,15 @@ export class EditClienteComponent implements OnInit {
   pesquisaCEP() {
     const cep = this.cliente.value.cep.replace('-', '');
 
-    this.viaCepService.getAddressByCepCode(cep).subscribe(
-      data => {
-        if (data.erro !== true) {
-          this.cliente.patchValue({
-            cidade: data.localidade
-          });
-        }
-      });
+    if (cep.length === 8) {
+      this.viaCepService.getAddressByCepCode(cep).subscribe(
+        data => {
+          if (data.erro !== true) {
+            this.cliente.patchValue({
+              cidade: data.localidade
+            });
+          }
+        });
+    }
   }
 }
