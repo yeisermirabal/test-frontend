@@ -8,7 +8,7 @@
         <div class="example-container">
           <mat-form-field hintLabel="Min 3 - Max 80">
             <input matInput hidden #inputIdCliente>
-            <input matInput #inputNomeCliente placeholder="Nome" placeholder="Nome" formControlName="nome">
+            <input matInput #inputNomeCliente placeholder="Nome" formControlName="nome">
             <mat-hint align="end">{{inputNomeCliente.value?.length || 0}}/80</mat-hint>
           </mat-form-field>
           <mat-form-field formGroupName="grupo">
