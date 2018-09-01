@@ -62,7 +62,6 @@ export class EditClienteComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.cliente.value);
     this.clienteService.atualizarClienteService(this.cliente.value).subscribe((data) => {
       this.router.navigate(['/clientes']);
     });
