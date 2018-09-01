@@ -1,3 +1,4 @@
+<div class="main_container">
 <form (ngSubmit)="editarCliente()" [formGroup]="cliente" novalidate>
   <mat-card class="card_container">
     <mat-card-header>
@@ -7,10 +8,10 @@
       <form class="example-container" novalidate [formGroup]="cliente" (ngSubmit)="onSubmit()">
         <div class="example-container">
           <mat-form-field hintLabel="Min 3 - Max 80">
-            <input matInput hidden #inputIdCliente>
             <input matInput #inputNomeCliente placeholder="Nome" formControlName="nome">
             <mat-hint align="end">{{inputNomeCliente.value?.length || 0}}/80</mat-hint>
           </mat-form-field>
+          <input matInput hidden #inputIdCliente>
           <mat-form-field formGroupName="grupo">
             <mat-select #selectGrupoCliente placeholder="Grupo" [compareWith]="" formControlName="id" >
               <mat-option *ngFor="let grupo of gruposDataSelect" [value]="grupo.id" >{{grupo.nome}}</mat-option>
@@ -32,4 +33,4 @@
     </mat-card-content>
   </mat-card>
 </form>
-
+</div>

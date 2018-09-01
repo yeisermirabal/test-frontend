@@ -12,11 +12,11 @@
    editar
    eliminar
 
--arreglar vista inicial (poner 2 imágenes que digan Grupos: <cantidad>   Clientes: <cantidad>  )
+-arreglar vista inicial (poner 2 imágenes que digan Grupos: <cantidad>   Clientes: <cantidad>  ) (OK)
 
 -revisar que todos los textos estén en portugués
 
--agrgar filtro de nombre a los CRUD
+-agrgar filtro de nombre a los CRUD (OK)
    filtro en CRUD cliente
    filtro en CRUD grupo
 
