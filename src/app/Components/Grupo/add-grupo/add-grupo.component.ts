@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GrupoService } from '../../Service/grupo.service';
+import { GrupoService } from '../../../Services/Grupo/grupo.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   providers: [GrupoService],
   styleUrls: ['./add-grupo.component.css']
 })
-
 
 export class AddGrupoComponent implements OnInit {
 
@@ -29,5 +28,4 @@ export class AddGrupoComponent implements OnInit {
       this.router.navigate(['/grupos']);
     });
   }
-
 }

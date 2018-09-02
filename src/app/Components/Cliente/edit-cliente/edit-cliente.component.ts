@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { ViaCepService } from '../../Service/via-cep.service';
-import { ClienteService } from '../../Service/cliente.service';
-import { GrupoService } from '../../Service/grupo.service';
-import { Grupo } from '../../Interface/grupo';
+import { GrupoService } from '../../../Services/Grupo/grupo.service';
+import { ClienteService } from '../../../Services/Cliente/cliente.service';
+import { Grupo } from '../../../Interfaces/grupo';
+import { ViaCepService } from '../../../Services/ViaCep/via-cep.service';
 
 @Component({
   selector: 'app-edit-cliente',

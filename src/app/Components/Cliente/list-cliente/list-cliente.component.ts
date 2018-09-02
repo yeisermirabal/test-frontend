@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
-import { ClienteService } from '../../Service/cliente.service';
-import { Cliente } from '../../Interface/cliente';
+import { ClienteService } from '../../../Services/Cliente/cliente.service';
+import { Cliente } from '../../../Interfaces/cliente';
 
 @Component({
   selector: 'app-list-cliente',

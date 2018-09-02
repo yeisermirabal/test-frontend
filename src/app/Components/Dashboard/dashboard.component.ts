@@ -1,5 +1,5 @@
-import { ClienteService } from '../Service/cliente.service';
-import { GrupoService } from '../Service/grupo.service';
+import { ClienteService } from '../../Services/Cliente/cliente.service';
+import { GrupoService } from '../../Services/Grupo/grupo.service';
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import {

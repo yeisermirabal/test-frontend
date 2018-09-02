@@ -8,23 +8,23 @@ import { AppComponent } from './app.component';
 import { TextMaskModule } from 'angular2-text-mask';
 
 /*Components related to Clients*/
-import { AddClienteComponent } from './Cliente/add-cliente/add-cliente.component';
-import { EditClienteComponent } from './Cliente/edit-cliente/edit-cliente.component';
-import { ListClienteComponent } from './Cliente/list-cliente/list-cliente.component';
+import { AddClienteComponent } from './Components/Cliente/add-cliente/add-cliente.component';
+import { EditClienteComponent } from './Components/Cliente/edit-cliente/edit-cliente.component';
+import { ListClienteComponent } from './Components/Cliente/list-cliente/list-cliente.component';
 /*Components related to Groups*/
-import { AddGrupoComponent } from './Grupo/add-grupo/add-grupo.component';
-import { EditGrupoComponent } from './Grupo/edit-grupo/edit-grupo.component';
-import { ListGrupoComponent } from './Grupo/list-grupo/list-grupo.component';
+import { AddGrupoComponent } from './Components/Grupo/add-grupo/add-grupo.component';
+import { EditGrupoComponent } from './Components/Grupo/edit-grupo/edit-grupo.component';
+import { ListGrupoComponent } from './Components/Grupo/list-grupo/list-grupo.component';
 /*File with routes*/
 import { routing } from './routing';
-import { MaterialModule } from './Module/material';
+import { MaterialModule } from './Modules/material';
 /*Import Service*/
-import { ClienteService } from './Service/cliente.service';
-import { GrupoService } from './Service/grupo.service';
-import { ViaCepService } from './Service/via-cep.service';
+import { ClienteService } from './Services/Cliente/cliente.service';
+import { GrupoService } from './Services/Grupo/grupo.service';
+import { ViaCepService } from './Services/ViaCep/via-cep.service';
 
-import { NavigationComponent } from './navigation/navigation.component';
-import { DashboardComponent } from './Dashboard/dashboard.component';
+import { NavigationComponent } from './Components/Navigation/navigation.component';
+import { DashboardComponent } from './Components/Dashboard/dashboard.component';
 
 @NgModule({
   declarations: [

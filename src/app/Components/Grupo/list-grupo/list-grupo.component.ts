@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { GrupoService } from '../../Service/grupo.service';
-import { Grupo } from './../../Interface/grupo';
+import { GrupoService } from '../../../Services/Grupo/grupo.service';
+import { Grupo } from './../../../Interfaces/grupo';
 
 @Component({
   selector: 'app-list-grupo',

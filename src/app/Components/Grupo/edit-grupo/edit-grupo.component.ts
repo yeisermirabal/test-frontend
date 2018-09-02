@@ -1,4 +1,4 @@
-import { GrupoService } from './../../Service/grupo.service';
+import { GrupoService } from '../../../Services/Grupo/grupo.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
