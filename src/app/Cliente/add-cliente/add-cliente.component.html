@@ -1,34 +1,35 @@
 <div class="main_container">
-<form (ngSubmit)="criarCliente()" [formGroup]="cliente" novalidate >
 <mat-card class="card_container">
   <mat-card-header>
     <mat-card-title>Adicionar um cliente</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <!-- The form goes here -->
+      <form (ngSubmit)="criarCliente()" [formGroup]="cliente" novalidate >
     <div class="example-container">
       <mat-form-field hintLabel="Min 3 - Max 80">
-        <input matInput #inputNome placeholder="Nome" formControlName="nome">
+        <input matInput #inputNome placeholder="Nome" matTooltip="Digite o nome do cliente" formControlName="nome">
         <mat-hint align="end">{{inputNome.value?.length || 0}}/80</mat-hint>
       </mat-form-field>
       <mat-form-field  formGroupName="grupo">
-        <mat-select #selectGrupo placeholder="Grupo" formControlName="id">
+        <mat-select #selectGrupo placeholder="Grupo" matTooltip="Selecione o grupo ao qual o cliente pertence" formControlName="id">
           <mat-option *ngFor="let grupo of gruposDataSelect" value="{{grupo.id}}">{{grupo.nome}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <input matInput #cep id="cep" placeholder="CEP" formControlName="cep" [textMask]="{mask: cepMask, placeholderChar: '\u2000', guide: false }" (blur)="pesquisaCEP()"/>
+        <input matInput #cep id="cep" placeholder="CEP" formControlName="cep" matTooltip="O CEP contém 8 dígitos" [textMask]="{mask: cepMask, placeholderChar: '\u2000', guide: false }" (blur)="pesquisaCEP()"/>
       </mat-form-field>
       <mat-form-field hintLabel="Min 3 - Max 80">
-        <input matInput #inputCidade placeholder="Cidade" formControlName="cidade">
+        <input matInput #inputCidade placeholder="Cidade" formControlName="cidade" matTooltip="Digite sua cidade">
         <mat-hint align="end">{{inputCidade.value?.length || 0}}/80</mat-hint>
       </mat-form-field>
     </div>
+    <mat-card-actions>
+        <button mat-stroked-button type="submit" [disabled]="cliente.invalid" matTooltip="Aceite os dados" color="primary">Aceitar</button>
+        <button mat-stroked-button routerLink="/clientes" matTooltip="Retornar para a lista de clientes">Cancelar</button>
+      </mat-card-actions>
+  </form>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-stroked-button type="submit" [disabled]="cliente.invalid" color="primary">Aceitar</button>
-    <button mat-stroked-button routerLink="/clientes">Cancelar</button>
-  </mat-card-actions>
+
 </mat-card>
-</form>
+
 </div>

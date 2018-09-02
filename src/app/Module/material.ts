@@ -12,6 +12,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import { MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import {MatCardModule} from '@angular/material/card';
      MatTabsModule, MatDividerModule, MatSliderModule, MatRadioModule,
      MatNativeDateModule, MatDatepickerModule, MatSnackBarModule,
      MatProgressSpinnerModule, MatSortModule,
-    MatCardModule, MatPaginatorModule, MatGridListModule, MatMenuModule ],
+    MatCardModule, MatPaginatorModule, MatGridListModule, MatMenuModule, MatTooltipModule ],
 
   exports: [MatButtonModule, MatCheckboxModule, MatTableModule,
     MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,
@@ -29,6 +30,6 @@ import {MatCardModule} from '@angular/material/card';
     MatTabsModule, MatDividerModule, MatSliderModule, MatRadioModule,
     MatNativeDateModule, MatDatepickerModule, MatSnackBarModule,
     MatProgressSpinnerModule, MatSortModule,
-   MatCardModule, MatPaginatorModule, MatGridListModule, MatMenuModule ],
+   MatCardModule, MatPaginatorModule, MatGridListModule, MatMenuModule, MatTooltipModule ],
 })
 export class MaterialModule { }
