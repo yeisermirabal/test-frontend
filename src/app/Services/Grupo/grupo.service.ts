@@ -40,7 +40,7 @@ export class GrupoService {
     return this.http.put<Grupo>(this.serviceUrl, grupo, httpOptions);
   }
 
-  deletarGrupoService(id: number): Observable<Grupo> {
+  deletarGrupoService(id: number): Observable<any> {
     const url = `${this.baseUrl}/grupos/${id}`;
     return this.http.delete<Grupo>(url, httpOptions);
   }

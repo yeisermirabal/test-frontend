@@ -24,7 +24,7 @@ export class ListClienteComponent implements OnInit {
   @ViewChild(MatSort)
   sort: MatSort;
 
-  constructor(private router: Router, private clienteService: ClienteService) {}
+  constructor(private router: Router, private clienteService: ClienteService) { }
 
   ngOnInit() {
     this.loadData();
@@ -51,10 +51,13 @@ export class ListClienteComponent implements OnInit {
     this.router.navigate(['clientes/editar', id]);
   }
 
-  deletarCliente(id): void {
-    this.clienteService.deletarClienteService(id).subscribe(data => {
-      this.loadData();
-    });
+  deletarCliente(cliente): void {
+
+    if (confirm(`¿Tem certeza de que deseja remover o cliente ${cliente.nome}?`) === true) {
+      this.clienteService.deletarClienteService(cliente.id).subscribe(data => {
+        this.loadData();
+      });
+    }
   }
 
   filterCliente(filterValue: string) {

@@ -48,9 +48,15 @@ export class ListGrupoComponent implements OnInit {
   }
 
   deletarGrupo(grupo): void {
-    this.grupoService.deletarGrupoService(grupo.id).subscribe(data => {
-      this.loadData();
-    });
+
+    if (confirm(`¿Tem certeza de que deseja remover o grupo ${grupo.nome}?`) === true) {
+      this.grupoService.deletarGrupoService(grupo.id).subscribe(data => {
+        if (data === false) {
+          alert('Não foi possível eliminar o grupo. Tem clientes associados.');
+        }
+        this.loadData();
+      });
+    }
   }
 
   filterGrupo(filterValue: string) {

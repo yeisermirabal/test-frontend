@@ -39,7 +39,7 @@ import { MaterialModule } from './Modules/material';
     EditGrupoComponent,
     ListGrupoComponent,
     NavigationComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

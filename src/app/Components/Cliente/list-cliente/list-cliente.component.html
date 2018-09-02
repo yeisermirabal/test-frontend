@@ -48,7 +48,7 @@
         <button mat-icon-button (click)="showEditarCliente(cliente.id)" matTooltip="Editar">
           <mat-icon aria-label="">edit</mat-icon>
         </button>
-        <button mat-icon-button (click)="deletarCliente(cliente.id)" color="warn" matTooltip="Deletar">
+        <button mat-icon-button (click)="deletarCliente(cliente)" color="warn" matTooltip="Deletar">
           <mat-icon aria-label="">delete</mat-icon>
         </button>
       </mat-cell>
@@ -58,4 +58,6 @@
   </mat-table>
   <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
+
+
 
