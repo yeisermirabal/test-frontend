@@ -5,7 +5,8 @@
       <mat-form-field class="filter_table">
         <input matInput (keyup)="filterCliente($event.target.value)" placeholder="Pesquisar" matTooltip="Procure um cliente com o nome">
       </mat-form-field>
-      <button mat-button (click)="showAdicionarCliente()" matTooltip="Adicionar um cliente"><mat-icon class="menu_icons" >add_circle</mat-icon> Adicionar</button>
+      <button mat-button (click)="showAdicionarCliente()" matTooltip="Adicionar um cliente"><mat-icon class="menu_icons">add_circle</mat-icon>
+        Adicionar</button>
     </div>
   </mat-card-header>
   <router-outlet></router-outlet>
@@ -18,11 +19,12 @@
     </ng-container>
     <ng-container matColumnDef="index">
       <mat-header-cell *matHeaderCellDef class="first_table_column"> No. </mat-header-cell>
-      <mat-cell *matCellDef="let cliente; let i = index;" class="first_table_column">{{i+1}}</mat-cell>
+      <mat-cell *matCellDef="let cliente" class="first_table_column">{{dataSourceClientes.filteredData.indexOf(cliente) +
+        1}}</mat-cell>
     </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="nome">
-      <mat-header-cell *matHeaderCellDef > Nome </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
       <mat-cell *matCellDef="let cliente"> {{cliente.nome}} </mat-cell>
     </ng-container>
     <!-- CEP Column -->
@@ -58,6 +60,3 @@
   </mat-table>
   <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
-
-
-

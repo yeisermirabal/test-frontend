@@ -11,7 +11,7 @@ import { Grupo } from './../../../Interfaces/grupo';
 })
 
 export class ListGrupoComponent implements OnInit {
-  dataSourceGrupos: MatTableDataSource<Grupo>;
+  dataSourceGrupos = new MatTableDataSource<Grupo>();
   displayedColumns = ['id', 'index', 'nome', 'actions'];
 
   @ViewChild(MatPaginator)
@@ -20,6 +20,7 @@ export class ListGrupoComponent implements OnInit {
   sort: MatSort;
 
   constructor(private router: Router, private grupoService: GrupoService) {
+
   }
 
   ngOnInit() {

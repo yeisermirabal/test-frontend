@@ -16,7 +16,7 @@ import { Cliente } from '../../../Interfaces/cliente';
   styleUrls: ['./list-cliente.component.css']
 })
 export class ListClienteComponent implements OnInit {
-  dataSourceClientes: MatTableDataSource<Cliente>;
+  dataSourceClientes = new MatTableDataSource<Cliente>();
   displayedColumns = ['id', 'index', 'nome', 'cep', 'cidade', 'grupo', 'actions'];
 
   @ViewChild(MatPaginator)

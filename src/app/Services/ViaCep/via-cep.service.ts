@@ -8,8 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class ViaCepService {
 
-  localidade = '';
-
   constructor(private http: HttpClient) { }
 
   getAddressByCepCode(cep: string): Observable<Address> {

@@ -7,6 +7,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 
+
 // components
 import { AppComponent } from './app.component';
 import { AddClienteComponent } from './Components/Cliente/add-cliente/add-cliente.component';

@@ -18,7 +18,7 @@
     </ng-container>
     <ng-container matColumnDef="index">
       <mat-header-cell *matHeaderCellDef class="first_table_column"> No. </mat-header-cell>
-      <mat-cell *matCellDef="let cliente; let i = index;" class="first_table_column">{{i+1}}</mat-cell>
+      <mat-cell *matCellDef="let grupo" class="first_table_column">{{ dataSourceGrupos.filteredData.indexOf(grupo) + 1 }}</mat-cell>
     </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="nome" >
