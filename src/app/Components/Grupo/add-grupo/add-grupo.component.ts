@@ -13,6 +13,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AddGrupoComponent implements OnInit {
 
   grupo: FormGroup;
+  procesando = false;
 
   constructor(private router: Router, private grupoService: GrupoService) {
     this.grupo = new FormGroup({
@@ -24,8 +25,15 @@ export class AddGrupoComponent implements OnInit {
   }
 
   onSubmit() {
+    this.procesando = true;
     this.grupoService.criarGrupoService(this.grupo.value).subscribe((data) => {
+      this.procesando = false;
       this.router.navigate(['/grupos']);
     });
   }
+
+  disableSubmit() {
+    return (this.grupo.invalid || this.procesando);
+  }
+
 }

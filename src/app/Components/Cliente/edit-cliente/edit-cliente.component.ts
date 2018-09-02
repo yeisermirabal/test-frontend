@@ -18,6 +18,8 @@ export class EditClienteComponent implements OnInit {
   cepMask = [/[0-9]/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
   cliente: FormGroup;
 
+  procesando = false;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -63,7 +65,9 @@ export class EditClienteComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.procesando = true;
     this.clienteService.atualizarClienteService(this.cliente.value).subscribe((data) => {
+      this.procesando = false;
       this.router.navigate(['/clientes']);
     });
   }
@@ -82,4 +86,9 @@ export class EditClienteComponent implements OnInit {
         });
     }
   }
+
+  disableSubmit() {
+    return (this.cliente.invalid || this.procesando);
+  }
+
 }

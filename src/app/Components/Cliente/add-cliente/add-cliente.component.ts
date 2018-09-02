@@ -18,6 +18,8 @@ export class AddClienteComponent implements OnInit {
   gruposDataSelect: Grupo[];
   cepMask = [/[0-9]/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
+  procesando = false;
+
   constructor(
     private router: Router,
     private clienteService: ClienteService,
@@ -46,10 +48,12 @@ export class AddClienteComponent implements OnInit {
 
   /*Take data sended from view and send it to the service */
   criarCliente(): void {
+    this.procesando = true;
     this.clienteService
       .criarClienteService(this.cliente.value)
       .subscribe(data => {
-        this.router.navigate(['/clientes']);
+         this.procesando = false;
+         this.router.navigate(['/clientes']);
       });
   }
 
@@ -65,6 +69,10 @@ export class AddClienteComponent implements OnInit {
         }
       });
     }
+  }
+
+  disableSubmit() {
+    return (this.cliente.invalid || this.procesando);
   }
 
 }
