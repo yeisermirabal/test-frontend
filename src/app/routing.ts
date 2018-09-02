@@ -8,7 +8,7 @@ import { AddGrupoComponent } from './Grupo/add-grupo/add-grupo.component';
 import { EditGrupoComponent } from './Grupo/edit-grupo/edit-grupo.component';
 import { ListGrupoComponent } from './Grupo/list-grupo/list-grupo.component';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './Dashboard/dashboard.component';
 
 
 const routes: Routes = [
