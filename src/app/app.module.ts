@@ -51,7 +51,6 @@ import { MaterialModule } from './Modules/material';
     LayoutModule,
     FormsModule,
     TextMaskModule,
-    ModalDialogModule.forRoot()
   ],
   providers: [ClienteService, GrupoService, ViaCepService],
   bootstrap: [AppComponent]

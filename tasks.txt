@@ -1,4 +1,4 @@
--poner tooltips a los botones indicando la función que hacen
+-poner tooltips a los botones indicando la función que hacen (OK)
 
 -poner mensajes informativos en las interacciones (validaciones, etc)
 
@@ -14,7 +14,7 @@
 
 -arreglar vista inicial (poner 2 imágenes que digan Grupos: <cantidad>   Clientes: <cantidad>  ) (OK)
 
--revisar que todos los textos estén en portugués
+-revisar que todos los textos estén en portugués (OK)
 
 -agrgar filtro de nombre a los CRUD (OK)
    filtro en CRUD cliente
@@ -24,8 +24,8 @@
 
 -preguntar al usuario antes de eliminar registros
 
--quitar selección del logo después de hacer click (se queda un recuadro en la imagen)
+-quitar selección del logo después de hacer click (se queda un recuadro en la imagen)(OK)
 
-- esconder ir en Tablas y poner numeración
+- esconder ir en Tablas y poner numeración (OK)
 
 
