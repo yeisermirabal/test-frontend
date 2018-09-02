@@ -1,32 +1,27 @@
-<mat-sidenav-container class="sidenav-container"  >
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    fixedInViewport="true"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary"><img src="../../assets/logo-app.svg" width="100%" [routerLink]="['/']" height="auto"/></mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary"><img src="../../assets/logo-app.svg" width="100%" [routerLink]="['/']" height="auto" /></mat-toolbar>
     <mat-nav-list>
-        <a mat-list-item [routerLink]="['/']"> <mat-icon class="menu_icons">dashboard</mat-icon> Dashboard </a>
+      <a mat-list-item [routerLink]="['/']"> <mat-icon class="menu_icons">dashboard</mat-icon> Dashboard </a>
       <a mat-list-item [routerLink]="['/grupos']"> <mat-icon class="menu_icons">group_work</mat-icon> Grupos</a>
-      <a mat-list-item [routerLink]="['/clientes']">  <mat-icon class="menu_icons">account_circle</mat-icon> Clientes</a>
+      <a mat-list-item [routerLink]="['/clientes']"> <mat-icon class="menu_icons">account_circle</mat-icon> Clientes</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content class="sidenav_content">
-    <mat-toolbar color="primary" >
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon" >menu</mat-icon>
-      </button>
-      <div class="logo_toolbar"><img src="../../assets/logo-app.svg" [routerLink]="['/']"/></div>
-    </mat-toolbar>
-
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
+  <div class="page-wrap">
+    <header role="banner">
+      <mat-toolbar color="primary">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <div class="logo_toolbar"><img src="../../assets/logo-app.svg" [routerLink]="['/']" /></div>
+      </mat-toolbar>
+    </header>
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+    <footer>
+       <i> © 2018 - <b>BRAZIL SISTEM</b>. Todos os direitos reservados.</i>
+    </footer>
+  </div>
 </mat-sidenav-container>
-
