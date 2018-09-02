@@ -19,9 +19,7 @@ export class ListGrupoComponent implements OnInit {
   @ViewChild(MatSort)
   sort: MatSort;
 
-  constructor(private router: Router, private grupoService: GrupoService) {
-
-  }
+  constructor(private router: Router, private grupoService: GrupoService) {}
 
   ngOnInit() {
     this.loadData();

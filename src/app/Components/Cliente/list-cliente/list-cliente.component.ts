@@ -4,7 +4,6 @@ import {
   MatPaginator,
   MatSort,
   MatTableDataSource,
-  MatPaginatorIntl
 } from '@angular/material';
 
 import { ClienteService } from '../../../Services/Cliente/cliente.service';

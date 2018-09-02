@@ -2,11 +2,7 @@ import { ClienteService } from '../../Services/Cliente/cliente.service';
 import { GrupoService } from '../../Services/Grupo/grupo.service';
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
-import {
-  Breakpoints,
-  BreakpointState,
-  BreakpointObserver
-} from '@angular/cdk/layout';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,7 +25,7 @@ export class DashboardComponent {
       this.cantidadClientes = data;
     });
   }
-  /** Based on the screen size, switch from standard to one column per row */
+
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
