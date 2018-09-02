@@ -26,13 +26,13 @@
   padding-left:30px;
 }
 .card_group{
-  background-image: url('../../../assets/grupos.png') !important;
+  background-image: url('../../../assets/dashboard/grupos.png') !important;
   background-color: #3597db;
   background-repeat: no-repeat;
   background-size: contain;
 }
 .card_client{
-  background-image: url('../../../assets/clientes.png') !important;
+  background-image: url('../../../assets/dashboard/clientes.png') !important;
   background-repeat: no-repeat;
   background-size: contain;
   background-color: #1abb9c;
@@ -43,10 +43,10 @@
     font-size: 50px;
   }
   .card_group{
-    background-image: url('../../../assets/grupos-450x330.png') !important;
+    background-image: url('../../../assets/dashboard/grupos-450x330.png') !important;
   }
   .card_client{
-    background-image: url('../../../assets/clientes-450x330.png') !important;
+    background-image: url('../../../assets/dashboard/clientes-450x330.png') !important;
   }
 }
 @media only screen and (max-width: 450px) {
