@@ -10,7 +10,7 @@
             <input matInput #inputNomeCliente placeholder="Nome" formControlName="nome" matTooltip="Digite o nome do cliente">
             <mat-hint align="end">{{inputNomeCliente.value?.length || 0}}/80</mat-hint>
           </mat-form-field>
-          <input matInput hidden #inputIdCliente>
+          <input matInput hidden #inputIdCliente formControlName="id" >
           <mat-form-field formGroupName="grupo">
             <mat-select #selectGrupoCliente placeholder="Grupo" matTooltip="Selecione o grupo ao qual o cliente pertence" [compareWith]="" formControlName="id" >
               <mat-option *ngFor="let grupo of gruposDataSelect" [value]="grupo.id" >{{grupo.nome}}</mat-option>

@@ -26,6 +26,7 @@ export class EditClienteComponent implements OnInit {
     private viaCepService: ViaCepService
   ) {
     this.cliente = new FormGroup({
+      id: new FormControl(''),
       nome: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
