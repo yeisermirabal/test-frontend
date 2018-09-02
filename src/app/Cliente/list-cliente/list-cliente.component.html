@@ -3,9 +3,9 @@
     <mat-card-title>Lista de clientes</mat-card-title>
     <div class="button-row">
       <mat-form-field class="filter_table">
-        <input matInput (keyup)="filterCliente($event.target.value)" placeholder="Pesquisar">
+        <input matInput (keyup)="filterCliente($event.target.value)" placeholder="Pesquisar" matTooltip="Procure um grupo com o nome">
       </mat-form-field>
-      <button mat-button (click)="showAdicionarCliente()"><mat-icon class="menu_icons">add_circle</mat-icon> Adicionar</button>
+      <button mat-button (click)="showAdicionarCliente()" matTooltip="Adicionar um cliente"><mat-icon class="menu_icons" >add_circle</mat-icon> Adicionar</button>
     </div>
   </mat-card-header>
   <router-outlet></router-outlet>
@@ -21,13 +21,11 @@
       <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
       <mat-cell *matCellDef="let cliente"> {{cliente.nome}} </mat-cell>
     </ng-container>
-
     <!-- CEP Column -->
     <ng-container matColumnDef="cep">
       <mat-header-cell *matHeaderCellDef> CEP </mat-header-cell>
       <mat-cell *matCellDef="let cliente"> {{cliente.cep}} </mat-cell>
     </ng-container>
-
     <!-- Cidade Column -->
     <ng-container matColumnDef="cidade">
       <mat-header-cell *matHeaderCellDef> Cidade </mat-header-cell>
@@ -43,10 +41,10 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef> A&ccedil;&otilde;es </mat-header-cell>
       <mat-cell mat-cell *matCellDef="let cliente">
-        <button mat-icon-button (click)="showEditarCliente(cliente.id)">
+        <button mat-icon-button (click)="showEditarCliente(cliente.id)" matTooltip="Editar">
           <mat-icon aria-label="">edit</mat-icon>
         </button>
-        <button mat-icon-button (click)="deletarCliente(cliente.id)" color="warn">
+        <button mat-icon-button (click)="deletarCliente(cliente.id)" color="warn" matTooltip="Deletar">
           <mat-icon aria-label="">delete</mat-icon>
         </button>
       </mat-cell>
