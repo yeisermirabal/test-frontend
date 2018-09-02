@@ -3,9 +3,9 @@
     <mat-card-title>Lista de grupos</mat-card-title>
     <div class="button-row">
         <mat-form-field class="filter_table">
-          <input matInput (keyup)="filterGrupo($event.target.value)" placeholder="Pesquisar">
+          <input matInput (keyup)="filterGrupo($event.target.value)" placeholder="Pesquisar"  matTooltip="Procure um grupo com o nome">
         </mat-form-field>
-        <button mat-button (click)="showAdicionarGrupo()"><mat-icon class="menu_icons">add_circle</mat-icon> Adicionar</button>
+        <button mat-button (click)="showAdicionarGrupo()" matTooltip="Adicionar um grupo"><mat-icon class="menu_icons">add_circle</mat-icon> Adicionar</button>
       </div>
   </mat-card-header>
 
@@ -25,10 +25,10 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef> A&ccedil;&otilde;es </mat-header-cell>
       <mat-cell mat-cell *matCellDef="let grupo">
-        <button mat-icon-button (click)="showEditarGrupo(grupo.id)">
+        <button mat-icon-button (click)="showEditarGrupo(grupo.id)" matTooltip="Editar">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button (click)="deletarGrupo(grupo)" color="warn">
+        <button mat-icon-button (click)="deletarGrupo(grupo)" color="warn" matTooltip="Deletar">
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>

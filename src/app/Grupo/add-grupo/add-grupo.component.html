@@ -7,13 +7,13 @@
     <form class="example-container" novalidate [formGroup]="grupo" (ngSubmit)="onSubmit()">
       <div class="example-container">
         <mat-form-field hintLabel="Min 3 - Max 60">
-          <input matInput type="text" #grupoNome placeholder="Nome" formControlName="nome">
+          <input matInput type="text" #grupoNome placeholder="Nome" formControlName="nome" matTooltip="Digite o nome do grupo">
           <mat-hint align="end">{{grupoNome.value?.length || 0 }}/60</mat-hint>
         </mat-form-field>
       </div>
       <mat-card-actions>
-        <button mat-stroked-button type="submit" [disabled]="grupo.invalid" color="primary">Aceitar</button>
-        <button mat-stroked-button routerLink="/grupos">Cancelar</button>
+        <button mat-stroked-button type="submit" [disabled]="grupo.invalid" color="primary" matTooltip="Aceite os dados">Aceitar</button>
+        <button mat-stroked-button routerLink="/grupos" matTooltip="Retornar para a lista de grupos">Cancelar</button>
       </mat-card-actions>
     </form>
   </mat-card-content>
