@@ -12,7 +12,7 @@ import { Grupo } from './../../../Interfaces/grupo';
 
 export class ListGrupoComponent implements OnInit {
   dataSourceGrupos: MatTableDataSource<Grupo>;
-  displayedColumns = ['id', 'nome', 'actions'];
+  displayedColumns = ['id', 'index', 'nome', 'actions'];
 
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
@@ -28,6 +28,10 @@ export class ListGrupoComponent implements OnInit {
 
   public loadData() {
     this.paginator._changePageSize(this.paginator.pageSize);
+    this.paginator._intl.itemsPerPageLabel = 'Itens por página:';
+    this.paginator._intl.nextPageLabel = 'Página seguinte';
+    this.paginator._intl.previousPageLabel = 'Página anterior';
+
     this.grupoService.getData().subscribe(data => {
       this.dataSourceGrupos = new MatTableDataSource(data);
       this.dataSourceGrupos.paginator = this.paginator;

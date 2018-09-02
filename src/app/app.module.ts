@@ -17,6 +17,7 @@ import { EditGrupoComponent } from './Components/Grupo/edit-grupo/edit-grupo.com
 import { ListGrupoComponent } from './Components/Grupo/list-grupo/list-grupo.component';
 /*File with routes*/
 import { routing } from './routing';
+/* Import material components */
 import { MaterialModule } from './Modules/material';
 /*Import Service*/
 import { ClienteService } from './Services/Cliente/cliente.service';
